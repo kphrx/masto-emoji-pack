@@ -14,6 +14,7 @@ type Options struct {
 	Version   bool
 	Servers   []string
 	Split     bool
+	KeepOld   bool
 	OutputDir string
 }
 
@@ -23,7 +24,7 @@ func Help() {
 }
 
 func Version() {
-    fmt.Printf("masto-emoji-pack v%s\n", VERSION)
+	fmt.Printf("masto-emoji-pack v%s\n", VERSION)
 	os.Exit(0)
 }
 
@@ -44,6 +45,7 @@ func parseOptions() (options Options) {
 	help := getopt.BoolLong("help", 'h', "show help message")
 	version := getopt.BoolLong("version", 'v', "show version info")
 	split := getopt.BoolLong("split", 's', "split emoji pack via category")
+	keepOld := getopt.BoolLong("keep-old", 'k', "keep old files")
 	dir := getopt.StringLong("path", 'p', "/tmp", "generate emoji pack directory", "PATH")
 
 	Parse()
@@ -53,6 +55,7 @@ func parseOptions() (options Options) {
 		Version:   *version,
 		Servers:   getopt.Args(),
 		Split:     *split,
+		KeepOld:   *keepOld,
 		OutputDir: filepath.Clean(*dir),
 	}
 
