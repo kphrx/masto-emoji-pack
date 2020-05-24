@@ -16,7 +16,7 @@ $ go get github.com/kPherox/masto-emoji-pack
 
 == Usage
 
-. デフォルトで `tmp` にEmoji Packを作ります。
+. デフォルトで `tmp` にEmoji Packを作ります
 +
 [source, shell]
 ----
@@ -25,7 +25,7 @@ Success: example.com
 /tmp/example_com
 ----
 
-. `-p`, `--path` オプションで保存先を変更することができます
+. `-p`, `--path` オプションを使って保存先を変更できます
 +
 [source, shell]
 ----
@@ -34,7 +34,7 @@ Success: example.com
 example_com
 ----
 
-. `-s`, `--split` オプションでカテゴリごとにEmoji Packを作ることができます
+. `-s`, `--split` オプションを付けるとカテゴリごとにEmoji Packを作ります
 +
 [source, shell]
 ----
@@ -52,3 +52,6 @@ example_com/category3
 `-p`, `--path=PATH`:: generate emoji pack directory [/tmp]
 `-s`, `--split`::      split emoji pack via category
 `-v`, `--version`::    show version info
+
+== License
+MIT Licenseです。 https://github.com/kPherox/masto-emoji-pack/blob/master/LICENSE[LICENSE]を確認してください
