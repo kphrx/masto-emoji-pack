@@ -23,7 +23,7 @@ func Help() {
 }
 
 func Version() {
-	fmt.Fprintln(os.Stdout, "masto-emoji-pack v0.0.1")
+    fmt.Printf("masto-emoji-pack v%s\n", VERSION)
 	os.Exit(0)
 }
 
