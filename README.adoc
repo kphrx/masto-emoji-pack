@@ -1,1 +1,54 @@
 = masto-emoji-pack
+
+MastodonやPleromaのカスタム絵文字をダウンロードしてきてPleromaで使えるEmoji Packの形にするもの
+
+== Requirements
+* Go (latest checked: 1.14.3)
+
+== Installation
+
+[source, shell]
+----
+$ go get github.com/kPherox/masto-emoji-pack
+----
+
+`$GOBIN/masto-emoji-pack` が作られるので `$GOBIN` を `$PATH` に追加してください
+
+== Usage
+
+. デフォルトで `tmp` にEmoji Packを作ります。
++
+[source, shell]
+----
+$ masto-emoji-pack example.com
+Success: example.com
+/tmp/example_com
+----
+
+. `-p`, `--path` オプションで保存先を変更することができます
++
+[source, shell]
+----
+$ masto-emoji-pack -p. example.com
+Success: example.com
+example_com
+----
+
+. `-s`, `--split` オプションでカテゴリごとにEmoji Packを作ることができます
++
+[source, shell]
+----
+$ masto-emoji-pack -sp. example.com
+Success: example.com
+example_com/category1
+example_com/category2
+example_com/category3
+----
+
+=== Help
+ Usage: masto-emoji-pack [-hsv] [-p PATH] DOMAIN...
+
+`-h`, `--help`::      show help message
+`-p`, `--path=PATH`:: generate emoji pack directory [/tmp]
+`-s`, `--split`::      split emoji pack via category
+`-v`, `--version`::    show version info
