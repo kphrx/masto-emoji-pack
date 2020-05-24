@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"path/filepath"
 	"strings"
 )
@@ -47,6 +48,10 @@ func saveEmojiList(domain string, opts Options, c chan Result) {
 	}
 
 	out := filepath.Join(opts.OutputDir, strings.Replace(domain, ".", "_", -1))
+
+	if !opts.KeepOld {
+		os.RemoveAll(out)
+	}
 
 	if !opts.Split {
 		p := NewEmojiPack()
