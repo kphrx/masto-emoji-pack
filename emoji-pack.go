@@ -122,7 +122,14 @@ func downloadEmojiFile(outputDir string, shortcode string, fileUrl string, resul
 	}
 	defer resp.Body.Close()
 
-	r.File = filepath.Base(u.String())
+	var ueu string
+	ueu, r.Error = url.PathUnescape(u.String())
+	if r.Error != nil {
+		<-limit
+		result <- r
+		return
+	}
+	r.File = filepath.Base(ueu)
 
 	var f *os.File
 	f, r.Error = os.Create(filepath.Join(outputDir, r.File))
