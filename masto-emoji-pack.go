@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"path/filepath"
+	"strings"
 )
 
 type Result struct {
@@ -45,7 +46,7 @@ func saveEmojiList(domain string, opts Options, c chan Result) {
 		return
 	}
 
-	out := filepath.Join(opts.OutputDir, domain)
+	out := filepath.Join(opts.OutputDir, strings.Replace(domain, ".", "_", -1))
 
 	if !opts.Split {
 		p := NewEmojiPack()
