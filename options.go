@@ -4,15 +4,17 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/pborman/getopt/v2"
 )
 
 type Options struct {
-	Help    bool
-	Version bool
-	Servers []string
-	Split   bool
+	Help      bool
+	Version   bool
+	Servers   []string
+	Split     bool
+	OutputDir string
 }
 
 func Help() {
@@ -42,14 +44,16 @@ func parseOptions() (options Options) {
 	help := getopt.BoolLong("help", 'h', "show help message")
 	version := getopt.BoolLong("version", 'v', "show version info")
 	split := getopt.BoolLong("split", 's', "split emoji pack via category")
+	dir := getopt.StringLong("path", 'p', "/tmp", "generate emoji pack directory", "PATH")
 
 	Parse()
 
 	options = Options{
-		Help:    *help,
-		Version: *version,
-		Servers: getopt.Args(),
-		Split:   *split,
+		Help:      *help,
+		Version:   *version,
+		Servers:   getopt.Args(),
+		Split:     *split,
+		OutputDir: filepath.Clean(*dir),
 	}
 
 	if options.Help {
