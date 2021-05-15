@@ -9,7 +9,7 @@ MastodonやPleromaのカスタム絵文字をダウンロードしてきてPlero
 
 [source, shell]
 ----
-$ go get github.com/kPherox/masto-emoji-pack
+$ go install github.com/kpherox/masto-emoji-pack@latest
 ----
 
 `$GOBIN/masto-emoji-pack` が作られるので `$GOBIN` を `$PATH` に追加してください

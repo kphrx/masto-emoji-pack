@@ -1,4 +1,4 @@
-module github.com/kPherox/masto-emoji-pack
+module github.com/kpherox/masto-emoji-pack
 
 go 1.14
 
