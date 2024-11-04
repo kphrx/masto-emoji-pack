@@ -46,7 +46,7 @@ func parseOptions() (options Options) {
 	version := getopt.BoolLong("version", 'v', "show version info")
 	split := getopt.BoolLong("split", 's', "split emoji pack via category")
 	keepOld := getopt.BoolLong("keep-old", 'k', "keep old files")
-	dir := getopt.StringLong("path", 'p', "/tmp", "generate emoji pack directory", "PATH")
+	dir := getopt.StringLong("path", 'p', os.TempDir(), "generate emoji pack directory", "PATH")
 
 	Parse()
 
